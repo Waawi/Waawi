@@ -1,0 +1,767 @@
+$calibri: 'Open Sans', sans-serif;
+$knewave: 'Knewave', cursive;
+
+$black: #000000;
+$offWhite: #f7f6f6;
+$green: #86c7ab;
+$orange: #f8b872;
+$red: #b2140f;
+
+/*********************
+BREAKPOINTS
+*********************/
+
+@mixin breakpoint($point) {
+    @if $point == desktop {
+        @media (min-width: 70em) {
+            @content;
+        }
+    } @else if $point == laptop {
+        @media (min-width: 64em) {
+            @content;
+        }
+    } @else if $point == tablet {
+        @media (min-width: 50em) {
+            @content;
+        }
+    } @else if $point == phablet {
+        @media (min-width: 37.5em) {
+            @content;
+        }
+    } @else if $point == mobileonly {
+        @media (max-width: 37.5em) {
+            @content;
+        }
+    } @else {
+        @media (min-width: $point) {
+            @content;
+        }
+    }
+}
+
+body {
+    background: $offWhite;
+    font-size: 12px;
+    font-family: $calibri;
+    @include breakpoint(tablet) {
+        padding-top: 80px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body, html {
+    min-width: 320px;
+    width: 100%;
+    max-width: none;
+    overflow-x: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.spacer {
+    height: 150px;
+}
+
+header {
+    min-height: 80px;
+    padding-top: 20px;
+    transition: min-height .25s linear, padding-top .2s linear;
+    .logo {
+        margin-top: 5px;
+    }
+    ul.menu {
+        padding: 0 20px;
+        text-align: center;
+        margin: 0;
+        li {
+            list-style: none;
+            display: inline-block;
+            vertical-align: top;
+            a {
+                font-size: 12px;
+                font-weight: bold;
+                display: inline-block;
+                text-decoration: none;
+                color: $black;
+                text-transform: uppercase;
+                padding: 10px 5px;
+                &.lost-ambers {
+                    color: $orange;
+                }
+                &.twitter, &.facebook {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+    @include breakpoint(tablet) {
+        position: fixed;
+        background: $offWhite;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+
+        &.scrolling {
+            min-height: 50px;
+            padding-top: 10px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+        }
+
+        .logo {
+            display: inline-block;
+            margin-left: 30px;
+        }
+        ul.menu {
+            float: right;
+            li {
+                a {
+                    &.twitter, &.facebook {
+                        padding: 10px 5px;
+                    }
+                    &.twitter {
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.logo {
+    text-indent: -9999px;
+    background: url(./images/logo.png) no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 30px;
+    margin: 30px auto 10px;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    padding: 0 10px;
+    @include breakpoint(tablet) {
+        max-width: 650px;
+        padding: 0;
+        margin: 0 auto;
+    }
+}
+
+section {
+    padding: 50px 0;
+    &.green {
+        background: $green;
+    }
+    &.orange {
+        background: $orange;
+    }
+}
+
+.styled {
+    font-family: $knewave;
+}
+
+#about {
+    color: white;
+    .about {
+        text-align: center;
+        .content {
+            .styled {
+                font-size: 22px;
+                text-transform: uppercase;
+                font-weight: normal;
+                line-height: 1.2em;
+            }
+            p {
+                font-size: 10px;
+            }
+        }
+    }
+    .button {
+        margin-top: 50px;
+    }
+    @include breakpoint(tablet) {
+        padding: 90px 0;
+        .about {
+            text-align: left;
+            width: 565px;
+            margin: 0 auto;
+            .content {
+                margin-left: 120px;
+                .styled {
+                    font-size: 26px;
+                }
+            }
+        }
+        i {
+            float: left;
+        }
+    }
+}
+
+i {
+    display: inline-block;
+    width: 85px;
+    height: 85px;
+    border-radius: 85px;
+    background: white no-repeat center;
+    background-size: 100%;
+    overflow: hidden;
+    &.black {
+        background: black;
+        color: white;
+    }
+    .green & svg {
+        fill: $green;
+    }
+    .orange & svg {
+        fill: $orange;
+    }
+    svg {
+        display: block;
+        fill: white;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    &.game svg {
+        width: 80%;
+    }
+    &.team svg {
+        width: 90%;
+        margin-top: 20%;
+    }
+}
+
+.separation {
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+    color: white;
+    section > & {
+        margin-top: -92px;
+    }
+    i {
+        display: block;
+        margin: 0 auto 15px;
+    }
+    &.black {
+        color: black;
+    }
+}
+
+.button {
+    font-size: 16px;
+    font-weight: bold;
+    background: white;
+    text-transform: uppercase;
+    color: $green;
+    padding: 13px 16px;
+    display: inline-block;
+    &.center {
+        display: block;
+        margin: 0 auto;
+        width: 195px;
+    }
+}
+
+.facebook {
+
+}
+
+.video-spacer {
+    height: 50px;
+    @include breakpoint(phablet) {
+        margin-top: 100px;
+    }
+    @include breakpoint(table) {
+        margin-top: 150px;
+    }
+}
+
+.video-container {
+    max-width: 1250px;
+    margin: -100px 10px 75px;
+    @include breakpoint(phablet) {
+        margin-top: -150px;
+    }
+    @include breakpoint(table) {
+        margin-top: -200px;
+    }
+    @include breakpoint(1290px) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+#video {
+    position: relative;
+    // padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 40%;
+    padding-top: 25px;
+    background: center no-repeat url(./images/video.png);
+    background-size: cover;
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+blockquote {
+    font-size: 24px;
+    font-family: $knewave;
+    text-align: center;
+    margin: 20px 0 40px;
+    &:before {
+        content: '“';
+    }
+    &:after {
+        content: '”';
+    }
+}
+
+.specs {
+    display: block;
+    text-align: center;
+    font-size: 0;
+    > div {
+        font-size: 10px;
+        background: white;
+        font-weight: bold;
+        padding: 10px;
+        display: inline-block;
+        margin-right: 10px;
+        text-align: left;
+        width: calc(50% - 5px);
+        margin-bottom: 10px;
+        @include breakpoint(mobileonly) {
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+        h3 {
+            margin: 0 0 5px;
+            text-decoration: underline;
+        }
+    }
+    @include breakpoint(phablet) {
+        > div {
+            width: 120px;
+            &:nth-child(4) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.description {
+    margin: 50px auto;
+    p {
+        margin: 25px 0;
+    }
+    @include breakpoint(phablet) {
+        max-width: 460px;
+    }
+}
+
+.the-team {
+    padding-top: 20px;
+    margin-bottom: -100px;
+    .team-member {
+        padding-top: 200px;
+        display: inline-block;
+        min-height: 300px;
+        margin-bottom: 20px;
+        position: relative;
+        .portrait {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            img {
+                width: 250px;
+            }
+        }
+        .border {
+            position: relative;
+            background: white;
+            border: 3px solid $orange;
+            padding: 20px;
+        }
+        & + .team-member {
+            margin-bottom: 0px;
+        }
+        h2 {
+            font-family: $knewave;
+            font-weight: normal;
+            font-size: 20px;
+            margin-top: 0;
+        }
+        em {
+            display: block;
+            font-family: $knewave;
+            font-style: normal;
+            font-size: 12px;
+            line-height: 1.3em;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        p {
+            margin-top: 0;
+        }
+        a.twitter-handle {
+            color: $orange;
+            text-decoration: none;
+            font-weight: bold;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    @include breakpoint(phablet) {
+        padding-top: 200px;
+        padding-bottom: 100px;
+        margin-bottom: 0;
+        .team-member {
+            margin-top: -200px;
+            width: calc(50% - 10px);
+            float: left;
+            & + .team-member {
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.container.form {
+    width: 340px;
+    color: white;
+    margin: 0 auto;
+}
+
+input[type=text], input[type=email], textarea, button {
+    height: 35px;
+    font-weight: bold;
+    font-size: 12px;
+    border: none;
+    &[disabled] {
+        opacity: .5;
+    }
+}
+
+input[type=text], input[type=email], textarea {
+    width: 100%;
+    background: white;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    textarea {
+    }
+    color: $black;
+}
+
+textarea {
+    font-weight: normal;
+    min-height: 160px;
+    margin-top: 10px;
+}
+
+::placeholder {
+    color: $orange;
+}
+
+textarea::placeholder {
+    color: $green;
+}
+
+$arrowSize: 6px;
+$heightRatio: 1.4;
+
+label.error {
+    color: $red;
+    display: inline-block;
+    position: relative;
+    top: -8px;
+    @include breakpoint(tablet) {
+        background: white;
+        border-radius: 2px;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .2);
+        padding: 5px 10px;
+
+        position: absolute;
+        margin: 0 0 0 $arrowSize;
+        top: auto;
+        &:before {
+            display: inline-block;
+            position: absolute;
+            left: -$arrowSize*2;
+            top: 27/2-$arrowSize/$heightRatio;
+            border: $arrowSize solid transparent;
+            border-top-width: $arrowSize/$heightRatio;
+            border-bottom-width: $arrowSize/$heightRatio;
+            border-right-color: white;
+            content: '';
+        }
+        textarea + & {
+            margin-top: 10px;
+        }
+    }
+}
+
+form.contact {
+    padding-top: 40px;
+    position: relative;
+    button {
+        background: $orange;
+        color: white;
+        text-transform: uppercase;
+        border: 3px solid white;
+        font-size: 16px;
+        display: block;
+        min-width: 90px;
+        margin: 20px auto;
+    }
+    .body, .success {
+        transition: opacity .3s linear;
+    }
+    .body {
+        position: relative;
+        z-index: 10;
+    }
+    &.sent {
+        .body {
+            opacity: 0;
+        }
+        .success {
+            opacity: 1;
+        }
+    }
+    .success {
+        z-index: 5;
+        opacity: 0;
+        position: absolute;
+        padding: 10px 20px;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: rgba(255, 255, 255, .2);
+        border-radius: 10px;
+    }
+}
+
+#newsletter {
+    background: #d9d9d9;
+    margin: -75px 10px 0;
+    padding: 20px 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    h3 {
+        font-family: $knewave;
+        font-size: 14px;
+        font-weight: normal;
+        margin-top: 0;
+    }
+    img {
+        height: 110px;
+        position: absolute;
+        left: -11px;
+        bottom: -35px;
+        pointer-events: none;
+    }
+    .form-group, .success {
+        transition: opacity .3s linear;
+    }
+    .form-group {
+        opacity: 1;
+        background: white;
+        margin: 0 auto;
+        padding: 2px;
+        text-align: left;
+        display: table;
+        max-width: 350px;
+        position: relative;
+        z-index: 10;
+        input {
+            padding: 5px 10px;
+            background: transparent;
+            float: left;
+            display: table-cell;
+            margin: 0;
+            &::placeholder {
+                color: $orange;
+            }
+        }
+        span {
+            width: 1%;
+            position: relative;
+            font-size: 0;
+            white-space: nowrap;
+            display: table-cell;
+            button {
+                padding: 10px;
+                background: black;
+                float: right;
+                color: $orange;
+                text-transform: uppercase;
+                font-size: 10px;
+            }
+        }
+    }
+    .success {
+        opacity: 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        > p {
+            width: 300px;
+            display: inline-block;
+            max-width: 95%;
+            background: rgba($green, .8);
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    }
+    &.sent {
+        .form-group {
+            opacity: 0;
+        }
+        .success {
+            opacity: 1;
+        }
+    }
+    @include breakpoint(phablet) {
+        width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 95%;
+        h3 {
+            font-size: 18px;
+        }
+        img {
+            position: absolute;
+            left: 40px;
+            bottom: -40px;
+            height: 130px;
+        }
+        .form-group {
+            button {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+footer {
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 50px 10px;
+    text-align: center;
+    .legal {
+        padding-bottom: 20px;
+    }
+    .contact {
+        padding-bottom: 30px;
+        .twitter {
+            margin-left: 10px;
+        }
+    }
+    .logo {
+        display: block;
+        margin: 0 auto;
+        clear: both;
+    }
+    @include breakpoint(tablet) {
+        text-align: left;
+        .legal {
+            float: left;
+            padding-right: 20px;
+        }
+        .contact {
+            float: right;
+            padding-left: 20px;
+        }
+        .logo {
+            clear: none;
+        }
+    }
+}
+
+.waawi-egg {
+    padding: 150px 0;
+    text-align: center;
+    img {
+        max-width: 50%;
+    }
+}
+
+.facebook, .twitter {
+    &:before {
+        font-family: 'Socicon';
+        cursor: pointer;
+        text-indent: 0;
+        padding: 2px 0;
+        font-size: 1.2em;
+        color: inherit;
+        transition: color .2s linear;
+    }
+    &.facebook {
+        &:before {
+            content: '\e028';
+        }
+        &:hover {
+            &:before {
+                color: #3e5b98;
+            }
+        }
+    }
+    &.twitter {
+        &:before {
+            content: '\e08d';
+        }
+        &:hover {
+            &:before {
+                color: #4da7de;
+            }
+        }
+    }
+}
+
+.twitter {
+    &:before {
+        position: relative;
+        top: 2px;
+    }
+}
+
+.facebook {
+    &:before {
+        margin-left: 5px;
+    }
+}
