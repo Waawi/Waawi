@@ -32,7 +32,7 @@ $green: #86c7ab;
 body {
     font-size: 12px;
     font-family: 'Open Sans', sans-serif;
-    padding-top: 20px;
+    padding-top: 40px;
     @include breakpoint(tablet) {
         padding-top: 70px;
     }
@@ -112,22 +112,27 @@ input[type=email] {
 
 ::-webkit-input-placeholder {
     color: $pink;
+    text-transform: uppercase;
 }
 
 :-ms-input-placeholder {
     color: $pink;
+    text-transform: uppercase;
 }
 
 ::placeholder {
     color: $pink;
+    text-transform: uppercase;
 }
 
 textarea::-webkit-input-placeholder {
     color: $pink;
+    text-transform: uppercase;
 }
 
 textarea:-ms-input-placeholder {
     color: $pink;
+    text-transform: uppercase;
 }
 
 textarea::placeholder {
@@ -165,10 +170,6 @@ textarea::placeholder {
             color: black;
             font-size: 13px;
             font-weight: bold;
-            text-transform: uppercase;
-            &::placeholder {
-                color: $pink;
-            }
         }
         span {
             width: 1%;
@@ -198,13 +199,14 @@ textarea::placeholder {
         z-index: 1;
         bottom: 10px;
         left: 0;
+        top: 50px;
         width: 100%;
         text-align: center;
         > p {
             width: 300px;
             display: inline-block;
             max-width: 95%;
-            background: rgba($green, .8);
+            background: $pink;
             color: white;
             font-size: 16px;
             padding: 10px;

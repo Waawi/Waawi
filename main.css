@@ -1,7 +1,7 @@
 body {
   font-size: 12px;
   font-family: 'Open Sans', sans-serif;
-  padding-top: 20px; }
+  padding-top: 40px; }
   @media (min-width: 50em) {
     body {
       padding-top: 70px; } }
@@ -67,19 +67,24 @@ input[type=email] {
   border-right-width: 0; }
 
 ::-webkit-input-placeholder {
-  color: #ec008c; }
+  color: #ec008c;
+  text-transform: uppercase; }
 
 :-ms-input-placeholder {
-  color: #ec008c; }
+  color: #ec008c;
+  text-transform: uppercase; }
 
 ::placeholder {
-  color: #ec008c; }
+  color: #ec008c;
+  text-transform: uppercase; }
 
 textarea::-webkit-input-placeholder {
-  color: #ec008c; }
+  color: #ec008c;
+  text-transform: uppercase; }
 
 textarea:-ms-input-placeholder {
-  color: #ec008c; }
+  color: #ec008c;
+  text-transform: uppercase; }
 
 textarea::placeholder {
   color: #ec008c; }
@@ -112,10 +117,7 @@ textarea::placeholder {
       margin: 0;
       color: black;
       font-size: 13px;
-      font-weight: bold;
-      text-transform: uppercase; }
-      #newsletter .form-group input::placeholder {
-        color: #ec008c; }
+      font-weight: bold; }
     #newsletter .form-group span {
       width: 1%;
       position: relative;
@@ -140,13 +142,14 @@ textarea::placeholder {
     z-index: 1;
     bottom: 10px;
     left: 0;
+    top: 50px;
     width: 100%;
     text-align: center; }
     #newsletter .success > p {
       width: 300px;
       display: inline-block;
       max-width: 95%;
-      background: rgba(134, 199, 171, 0.8);
+      background: #ec008c;
       color: white;
       font-size: 16px;
       padding: 10px;
