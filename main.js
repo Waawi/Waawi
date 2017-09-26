@@ -26,7 +26,7 @@ $('#newsletter').validate({
 			success: function (data) {
 				if (data.result !== "success") {
 					alert(data.msg);
-					$form.find('button').attr('disabled', false);
+					$form.find('input, button').attr('disabled', false);
 				} else {
 					form.reset();
 					$form.addClass('sent').removeClass('loading');
@@ -34,7 +34,7 @@ $('#newsletter').validate({
 			},
 			error: function (error) {
 				alert(error);
-				$form.find('button').attr('disabled', false);
+				$form.find('input, button').attr('disabled', false);
 			},
 			complete: function () {
 				$form.addClass('loading');
