@@ -1,0 +1,339 @@
+$pink: #ec008c;
+$green: #86c7ab;
+
+@mixin breakpoint($point) {
+    @if $point == desktop {
+        @media (min-width: 70em) {
+            @content;
+        }
+    } @else if $point == laptop {
+        @media (min-width: 64em) {
+            @content;
+        }
+    } @else if $point == tablet {
+        @media (min-width: 50em) {
+            @content;
+        }
+    } @else if $point == phablet {
+        @media (min-width: 37.5em) {
+            @content;
+        }
+    } @else if $point == mobileonly {
+        @media (max-width: 37.5em) {
+            @content;
+        }
+    } @else {
+        @media (min-width: $point) {
+            @content;
+        }
+    }
+}
+
+body {
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 20px;
+    @include breakpoint(tablet) {
+        padding-top: 70px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body, html {
+    min-width: 320px;
+    width: 100%;
+    max-width: none;
+    overflow-x: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+        color: $pink;
+    }
+}
+
+#logo {
+    img {
+        max-width: 530px;
+        width: 100%;
+    }
+    padding-bottom: 40px;
+    @include breakpoint(phablet) {
+        padding-bottom: 60px;
+    }
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 100px;
+    @include breakpoint(25em) {
+        font-size: 24px;
+    }
+    @include breakpoint(phablet) {
+        font-size: 28px;
+        margin-bottom: 150px;
+    }
+}
+
+.clear {
+    clear: both;
+}
+
+#content {
+    text-align: center;
+}
+
+input[type=email], button {
+    height: 50px;
+    font-weight: bold;
+    font-size: 12px;
+    border: none;
+    &[disabled] {
+        opacity: .5;
+    }
+}
+
+input[type=email] {
+    width: 100%;
+    background: white;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 3px solid black;
+    border-right-width: 0;
+}
+
+::-webkit-input-placeholder {
+    color: $pink;
+}
+
+:-ms-input-placeholder {
+    color: $pink;
+}
+
+::placeholder {
+    color: $pink;
+}
+
+textarea::-webkit-input-placeholder {
+    color: $pink;
+}
+
+textarea:-ms-input-placeholder {
+    color: $pink;
+}
+
+textarea::placeholder {
+    color: $pink;
+}
+
+#newsletter {
+    position: relative;
+    h3 {
+        font-size: 13px;
+        font-weight: bold;
+        margin-top: 0;
+        text-transform: uppercase;
+    }
+    .form-group, .success {
+        transition: opacity .3s linear;
+    }
+    .form-group {
+        opacity: 1;
+        background: white;
+        margin: 0 auto;
+        padding: 2px;
+        text-align: left;
+        display: table;
+        position: relative;
+        z-index: 10;
+        width: 90%;
+        max-width: 350px;
+        input {
+            padding: 5px 15px;
+            background: transparent;
+            float: left;
+            display: table-cell;
+            margin: 0;
+            color: black;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            &::placeholder {
+                color: $pink;
+            }
+        }
+        span {
+            width: 1%;
+            position: relative;
+            font-size: 0;
+            white-space: nowrap;
+            display: table-cell;
+            button {
+                border: none;
+                padding: 10px;
+                background: black;
+                float: right;
+                color: white;
+                text-transform: uppercase;
+                font-size: 13px;
+                font-weight: bold;
+                width: 100%;
+                &:hover {
+                    color: $pink;
+                }
+            }
+        }
+    }
+    .success {
+        opacity: 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        > p {
+            width: 300px;
+            display: inline-block;
+            max-width: 95%;
+            background: rgba($green, .8);
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    }
+    &.sent {
+        .form-group {
+            opacity: 0;
+        }
+        .success {
+            opacity: 1;
+        }
+    }
+    img {
+        display: none;
+    }
+    @include breakpoint(phablet) {
+        width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 95%;
+        text-align: left;
+        h3 {
+            font-size: 18px;
+        }
+        img {
+            display: block;
+            position: absolute;
+            left: -120px;
+            bottom: -55px;
+            height: 160px;
+        }
+        .form-group {
+            button {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+footer {
+    font-size: 13px;
+    font-weight: 300;
+    margin-top: 50px;
+    padding: 50px 10px 20px;
+    text-align: center;
+    .legal, .contact {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .legal {
+        padding-bottom: 20px;
+    }
+    .contact {
+        margin-bottom: 20px;
+        .email {
+            display: block;
+            padding-bottom: 20px;
+        }
+    }
+    .twitter {
+        margin-right: 15px;
+    }
+    > span {
+        clear: both;
+        padding-bottom: 30px;
+        display: inline-block;
+    }
+    @include breakpoint(desktop) {
+        .legal, .contact {
+            width: 260px;
+        }
+        .legal {
+            float: left;
+            padding-right: 20px;
+            text-align: left;
+        }
+        .contact {
+            float: right;
+            padding-left: 20px;
+            .email {
+                display: inline;
+            }
+        }
+        .logo {
+            clear: none;
+        }
+        .twitter {
+            margin-left: 30px;
+            margin-right: 0;
+        }
+    }
+    @include breakpoint(phablet) {
+        margin-top: 150px;
+    }
+}
+
+.facebook, .twitter {
+    &:before {
+        font-family: 'Socicon';
+        cursor: pointer;
+        text-indent: 0;
+        padding: 2px 0;
+        font-size: 1.2em;
+        color: inherit;
+    }
+    &.facebook {
+        &:before {
+            content: '\e028';
+        }
+    }
+    &.twitter {
+        &:before {
+            content: '\e08d';
+        }
+    }
+}
+
+.twitter {
+    &:before {
+        position: relative;
+        top: 2px;
+    }
+}
+
+.facebook {
+    &:before {
+        margin-left: 5px;
+    }
+}
