@@ -26,7 +26,7 @@ a {
   padding-bottom: 40px; }
   #logo img {
     max-width: 530px;
-    width: 100%; }
+    width: 80%; }
   @media (min-width: 37.5em) {
     #logo {
       padding-bottom: 60px; } }
