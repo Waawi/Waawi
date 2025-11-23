@@ -179,12 +179,16 @@ textarea::placeholder {
         padding: 10px 20px;
         font-size: 13px; } }
 
-/* Footer layout */
+/* Footer layout - centered on all screens */
 footer {
+  display: flex;
+  flex-direction: column; /* stack everything vertically */
+  align-items: center;    /* horizontal centering */
+  justify-content: center;
   font-size: 13px;
   font-weight: 300;
   margin-top: 50px;
-  padding: 50px 10px 20px;
+  padding: 50px 20px 20px;
   text-align: center;
 }
 
@@ -193,10 +197,14 @@ footer > span {
   padding-bottom: 20px;
   font-weight: bold;
   font-size: 14px;
+  max-width: 600px;       /* optional, limits text width */
 }
 
 footer .contact {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;  /* stack email + icons vertically */
+  align-items: center;
 }
 
 footer .contact .email {
@@ -226,4 +234,21 @@ footer .legal {
   width: 60px;
   height: 60px;
   font-size: 28px;
-  color: black
+  color: black;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: white;
+}
+
+.social-link[href*="twitter"]:hover {
+  background-color: #1da1f2;
+}
+
+.social-link[href*="facebook"]:hover {
+  background-color: #4267B2;
+}
+
