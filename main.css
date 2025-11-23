@@ -241,4 +241,32 @@ footer {
 .facebook:before {
   margin-left: 5px; }
 
+.social-link {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 10px;
+  text-align: center;
+  color: black;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.social-link:hover {
+  color: white;
+  background-color: #1da1f2; /* Twitter default hover */
+}
+
+.social-link[href*="facebook"]:hover {
+  background-color: #4267B2; /* Facebook hover color */
+}
+
+.social-link i {
+  vertical-align: middle;
+}
+
+
 /*# sourceMappingURL=main.css.map */
