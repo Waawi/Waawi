@@ -192,6 +192,7 @@ footer > span {
   display: block;
   padding-bottom: 20px;
   font-weight: bold;
+  font-size: 14px;
 }
 
 footer .contact {
@@ -225,61 +226,4 @@ footer .legal {
   width: 60px;
   height: 60px;
   font-size: 28px;
-  color: black;
-  border-radius: 50%;
-  background-color: #f0f0f0;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  color: white;
-}
-
-.social-link[href*="twitter"]:hover {
-  background-color: #1da1f2;
-}
-
-.social-link[href*="facebook"]:hover {
-  background-color: #4267B2;
-}
-
-/* Responsive adjustments */
-@media (min-width: 70em) {
-  footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 50px 80px 20px;
-    text-align: left;
-  }
-
-  footer > span {
-    padding-bottom: 0;
-    width: 40%;
-  }
-
-  footer .contact {
-    width: 40%;
-    margin-bottom: 0;
-  }
-
-  footer .contact .email {
-    display: inline-block;
-    margin-bottom: 0;
-  }
-
-  footer .social-icons {
-    justify-content: flex-start;
-    margin-top: 10px;
-  }
-
-  footer .legal {
-    width: 20%;
-    margin-top: 0;
-    text-align: right;
-  }
-}
-
-
-
-/*# sourceMappingURL=main.css.map */
+  color: black
