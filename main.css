@@ -241,31 +241,32 @@ footer {
 .facebook:before {
   margin-left: 5px; }
 
+/* Footer social icons */
 .social-link {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  margin-right: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;      /* bigger circle */
+  height: 60px;     /* bigger circle */
+  margin: 0 10px;   /* spacing between icons */
   text-align: center;
+  font-size: 28px;  /* bigger icon */
   color: black;
   border-radius: 50%;
   background-color: #f0f0f0;
   transition: all 0.3s ease;
-  font-size: 20px;
 }
 
 .social-link:hover {
   color: white;
-  background-color: #1da1f2; /* Twitter default hover */
+}
+
+.social-link[href*="twitter"]:hover {
+  background-color: #1da1f2;
 }
 
 .social-link[href*="facebook"]:hover {
-  background-color: #4267B2; /* Facebook hover color */
-}
-
-.social-link i {
-  vertical-align: middle;
+  background-color: #4267B2;
 }
 
 
